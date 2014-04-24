@@ -1,0 +1,4 @@
+import("ggplot2","scales")
+useDynLib(dslice)
+exportPattern("^[[:alpha:]]+")
+importFrom(Rcpp, evalCpp)
