@@ -62,7 +62,7 @@ ds_gsa <- function(expdat, geneset, label, generank, ..., lambda = 1, bycol = FA
   slices <- NULL
   for(i in 1:used_set_num){
     current_set <- as.integer(sortmat[i, ])
-    current_res <- dslice_k(current_set, level, lambda)
+    current_res <- ds_k(current_set, level, lambda, slice=TRUE)
     if(current_res$dsval > 1e-6){
       pflag[i] <- 1
       ds_val[i] <- current_res$dsval

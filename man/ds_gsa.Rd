@@ -24,8 +24,8 @@
   \item{rounds}{Number of permutations for estimating significant level of results.}
 }
 \details{
-  \code{gs_gsa} performs gene set analysis via dynamic slicing. It returns the DS statistics and slicing strategy of each gene set.
-  \code{gs_gsa} does not attempt to integrate the ranking method into it. It requires ranking method or directly the gene rank as a parameter. Leaving ranking method as an optional input parameter is convenience for users who would like to use any ranking methods they want.
+  \code{ds_gsa} performs gene set analysis via dynamic slicing. It returns the DS statistics and slicing strategy of each gene set.
+  \code{ds_gsa} does not attempt to integrate the ranking method into it. It requires ranking method or directly the gene rank as a parameter. Leaving ranking method as an optional input parameter is convenience for users who would like to use any ranking methods they want.
 }
 \value{
   A list with informations of gene sets whose size satisfy the minimum and maximum size thresholds. Its contains the following components:
@@ -44,23 +44,25 @@
   Benjamini, Y. and Hochberg, Y. Controlling the false discovery rate: a practical and powerful approach to multiple testing. \emph{Journal of the Royal Statistical Society. Series B (Methodological)}, 1995, 57(1): 289-300.
 }
 \seealso{
-  \code{\link{dslice_k}}.
+  \code{\link{ds_k}}.
 }
 \examples{
 ##  Loading data from files
-#gctpath <- "P53.gct"
-#clspath <- "P53.cls"
-#gmtpath <- "C2.gmt"
-#expdat <- load_gct(gctpath)
-#label <- load_cls(clspath)
-#geneset <- load_gmt(gmtpath)
-#fc <- function(mat, label)
-#{
-#  d0 <- apply(x[,which(label == 0)], 1, mean)
-#  d1 <- apply(x[,which(label == 1)], 1, mean)
-#  d <- d1 / d0
-#  return(order(d))
-#}
-#ds_gsa_obj <- ds_gsa(expdat, geneset, label, "fc", lambda = 1.2, bycol = TRUE,
-#                 minsize = 15, maxsize = 500, randseed = 11235, rounds = 100)
+\dontrun{
+gctpath <- "P53.gct"
+clspath <- "P53.cls"
+gmtpath <- "C2.gmt"
+expdat <- load_gct(gctpath)
+label <- load_cls(clspath)
+geneset <- load_gmt(gmtpath)
+fc <- function(mat, label)
+{
+  d0 <- apply(x[,which(label == 0)], 1, mean)
+  d1 <- apply(x[,which(label == 1)], 1, mean)
+  d <- d1 / d0
+  return(order(d))
+}
+ds_gsa_obj <- ds_gsa(expdat, geneset, label, "fc", lambda = 1.2, bycol = TRUE,
+                     minsize = 15, maxsize = 500, randseed = 11235, rounds = 100)
+}
 }

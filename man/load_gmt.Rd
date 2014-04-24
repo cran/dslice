@@ -22,7 +22,9 @@
 # Gene set files are available after registration at Broad institute GSEA website
 # http://www.broadinstitute.org/gsea
 
-#filename <- "C2.gmt"
-#geneset <- load_gmt(filename)
+\dontrun{
+filename <- "C2.gmt"
+geneset <- load_gmt(filename)
+}
 }
 

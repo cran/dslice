@@ -7,16 +7,19 @@
   Showing slicing result and plotting counts of observations in each slice.
 }
 \usage{
-  slice_show(slices_obj)
+  slice_show(slices_obj, main="Counts in each slice", xlab="Slices", ylab="Percentage")
 }
 \arguments{
   \item{slices_obj}{A matrix stores slicing strategy. It is a component of object returned by function \code{dslice_k} or \code{dslice_eqp_k}.}
+  \item{main}{An overall title for the plo}
+  \item{xlab}{A title for the x axis}
+  \item{ylab}{A title for the y axis}
 }
 \value{
   A ``ggplot'' object which illustrates details of slicing.
 }
 \seealso{
-  \code{\link{dslice_k}}, \code{\link{dslice_eqp_k}}.
+  \code{\link{ds_k}}, \code{\link{ds_eqp_k}}.
 }
 \examples{
 n <- 100
@@ -26,7 +29,7 @@ x <- c(rep(0, n), rep(1, n))
 x <- x[order(y)]
 dim <- max(x) + 1
 lambda <- 1.0
-dsres <- dslice_k(x, dim, lambda)
+dsres <- ds_k(x, dim, lambda, slice = TRUE)
 
 ds_show <- slice_show(dsres$slices)
 }

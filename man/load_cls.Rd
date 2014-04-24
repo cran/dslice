@@ -21,6 +21,8 @@
 # Pheotype files are available after registration at Broad institute GSEA website
 # http://www.broadinstitute.org/gsea
 
-#filename <- "P53.cls"
-#label <- load_cls(filename)
+\dontrun{
+filename <- "P53.cls"
+label <- load_cls(filename)
+}
 }

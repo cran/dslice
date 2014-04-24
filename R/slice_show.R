@@ -1,4 +1,5 @@
-slice_show <- function(slices_obj)
+slice_show <- function(slices_obj, main="Counts in each slice", 
+                       xlab="Slices", ylab="Percentage")
 {
   s_n <- nrow(slices_obj)
   l_n <- ncol(slices_obj)
@@ -21,7 +22,7 @@ slice_show <- function(slices_obj)
     geom_bar(stat = "identity", position="stack") + 
     scale_y_continuous(labels = percent, limits=c(0, 1)) + 
     scale_fill_hue(name="Types") + 
-    ggtitle("Counts in each slice") + xlab("Slices") + ylab("Percentage") + 
+    ggtitle(main) + xlab(xlab) + ylab(ylab) + 
     geom_text(aes(label=count), position="stack", vjust=-0.5, colour="black", size = 3) + 
     facet_grid(. ~ slice) + 
     theme_bw()

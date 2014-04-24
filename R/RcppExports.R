@@ -9,18 +9,18 @@ ds_1 <- function(y, lambda = 1, alpha = 1) {
   .Call('dslice_ds_1', y, lambda, alpha, PACKAGE = 'dslice')
 }
 
-ds_eqp_k <- function(x, dim, lambda = 1) {
-  .Call('dslice_ds_eqp_k', x, dim, lambda, PACKAGE = 'dslice')
+ds_eqp_k <- function(x, dim, lambda = 1, slice = FALSE) {
+  if(slice) {
+    .Call('dslice_dslice_eqp_k', x, dim, lambda, PACKAGE = 'dslice')
+  }else{
+    .Call('dslice_ds_eqp_k', x, dim, lambda, PACKAGE = 'dslice')
+  }
 }
 
-ds_k <- function(x, dim, lambda = 1) {
+ds_k <- function(x, dim, lambda = 1, slice = FALSE) {
+  if(slice){
+    .Call('dslice_dslice_k', x, dim, lambda, PACKAGE = 'dslice')
+  }else{
   .Call('dslice_ds_k', x, dim, lambda, PACKAGE = 'dslice')
-}
-
-dslice_eqp_k <- function(x, dim, lambda = 1) {
-  .Call('dslice_dslice_eqp_k', x, dim, lambda, PACKAGE = 'dslice')
-}
-
-dslice_k <- function(x, dim, lambda = 1) {
-  .Call('dslice_dslice_k', x, dim, lambda, PACKAGE = 'dslice')
+  }
 }

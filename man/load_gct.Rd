@@ -19,6 +19,8 @@
 # Gene expression files are available after registration at Broad institute GSEA website
 # http://www.broadinstitute.org/gsea
 
-#filename <- "P53.gct"
-#expdat <- load_gct(filename)
+\dontrun{
+filename <- "P53.gct"
+expdat <- load_gct(filename)
+}
 }
