@@ -20,7 +20,7 @@
 
 % settings
 \geometry{a4paper, margin=1in}
-\linespread{1.15}
+\linespread{1.2}
 \hypersetup{
   colorlinks,
   breaklinks,
@@ -113,7 +113,7 @@ slice_show(dsres$slices)
 @
 \begin{figure}[htpb]
   \centering
-  \includegraphics[scale=0.4]{dslice-illustrate_slice}
+  \includegraphics[width=0.8\textwidth]{dslice-illustrate_slice}
   \caption{\it Illustration of slicing result.}
   \label{fig:dsres}
 \end{figure}
@@ -301,10 +301,38 @@ The choice of the slicing scheme $S(Y)$ is important in detecting the dependence
 \end{equation}
 where the maximum is taken over all possible slicing schemes. Furthermore, we assume that the penalty term in (\ref{eq:ds}) takes the form of $\lambda(n)=\lambda_0\log(n)$, where $\lambda_0>0$ is to be specified.
 
-\begin{figure}
+<<diffslices, echo=FALSE, fig=TRUE, width=8, height=6, include=FALSE>>=
+set.seed(1)
+n<-30
+x1<-rep(1,n)
+x2<-rep(2,n)
+y1<-c(rnorm(n/2,-2,0.5),rnorm(n/2,2,0.5))
+y2<-rnorm(n,0,1)
+
+xrange <- c(0.5,2.5)
+yrange <- c(-3.2,3.2)
+
+par(mfrow=c(1,2))
+
+plot(x1, y1, xlim=xrange, ylim=yrange, pch=paste(1), col=2, xlab="X", ylab="Y", xaxt="n", cex=1.5)
+axis(side=1, at=c(1,2), label=c(1,2))
+par(new=T)
+plot(x2, y2, xlim=xrange, ylim=yrange, pch=paste(2), col=4, xlab="", ylab="", xaxt="n", cex=1.5)
+axis(side=1, at=c(1,2), label=c(1,2))
+abline(h=0, lty=2, lwd=2)
+
+plot(x1, y1, xlim=xrange, ylim=yrange, pch=paste(1), col=2, xlab="X", ylab="Y", xaxt="n", cex=1.5)
+axis(side=1, at=c(1,2), label=c(1,2))
+par(new=T)
+plot(x2, y2, xlim=xrange, ylim=yrange, pch=paste(2), col=4, xlab="", ylab="", xaxt="n", cex=1.5)
+axis(side=1, at=c(1,2), label=c(1,2))
+abline(h=1, lty=2, lwd=2)
+abline(h=-1, lty=2, lwd=2)
+@
+\begin{figure}[htpb]
   \centering
-\includegraphics[width=0.4\textwidth, angle=-90]{slice.eps}
-\caption{Illustration of different slicing schemes. \textit{X} is a binary indicator for samples from two populations and \textit{Y} is a continuous variable. Left panel: by dividing the observations into two slices according to \textit{Y}, we are not able to reject the null hypothesis since the number of observations with \textit{X}$=$1 and \textit{X}$=$2 are almost equal in two slices. Right panel: by dividing the observations into three slices according to \textit{Y}, we can detect the dependence between \textit{Y} and \textit{X}.}
+  \includegraphics[width=0.64\textwidth]{dslice-diffslices}
+  \caption{Illustration of different slicing schemes. \textit{X} is a binary indicator for samples from two populations and \textit{Y} is a continuous variable. Left panel: by dividing the observations into two slices according to \textit{Y}, we are not able to reject the null hypothesis since the number of observations with \textit{X}$=$1 and \textit{X}$=$2 are almost equal in two slices. Right panel: by dividing the observations into three slices according to \textit{Y}, we can detect the dependence between \textit{Y} and \textit{X}.}
   \label{fig:slice}
 \end{figure}
 

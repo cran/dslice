@@ -138,3 +138,34 @@ fc <- function(mat, label)
 }
 
 
+###################################################
+### code chunk number 16: diffslices
+###################################################
+set.seed(1)
+n<-30
+x1<-rep(1,n)
+x2<-rep(2,n)
+y1<-c(rnorm(n/2,-2,0.5),rnorm(n/2,2,0.5))
+y2<-rnorm(n,0,1)
+
+xrange <- c(0.5,2.5)
+yrange <- c(-3.2,3.2)
+
+par(mfrow=c(1,2))
+
+plot(x1, y1, xlim=xrange, ylim=yrange, pch=paste(1), col=2, xlab="X", ylab="Y", xaxt="n", cex=1.5)
+axis(side=1, at=c(1,2), label=c(1,2))
+par(new=T)
+plot(x2, y2, xlim=xrange, ylim=yrange, pch=paste(2), col=4, xlab="", ylab="", xaxt="n", cex=1.5)
+axis(side=1, at=c(1,2), label=c(1,2))
+abline(h=0, lty=2, lwd=2)
+
+plot(x1, y1, xlim=xrange, ylim=yrange, pch=paste(1), col=2, xlab="X", ylab="Y", xaxt="n", cex=1.5)
+axis(side=1, at=c(1,2), label=c(1,2))
+par(new=T)
+plot(x2, y2, xlim=xrange, ylim=yrange, pch=paste(2), col=4, xlab="", ylab="", xaxt="n", cex=1.5)
+axis(side=1, at=c(1,2), label=c(1,2))
+abline(h=1, lty=2, lwd=2)
+abline(h=-1, lty=2, lwd=2)
+
+

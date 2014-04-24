@@ -1,4 +1,4 @@
-03608a1309422e1b99d2b81635839127 *DESCRIPTION
+d8b46fabddadd7063e4e284d3d55a95d *DESCRIPTION
 0c20872e4a9d74e2da2dff14dc0e8937 *NAMESPACE
 b45fd7dc9f83e0938fdeb515b87b8d8a *R/RcppExports.R
 dca0e445594c0ce87506d2913d886a37 *R/ds_gsa.R
@@ -14,9 +14,9 @@ a45e6ebd06c39a8ff37236f52ecea360 *R/relabel.R
 f571f56f357e2614014779fe3dcbb3bd *data/gsa_exp.RData
 12822c747a1ae996f1a36b3a300d68f7 *data/gsa_label.RData
 93ffc93b5f9a00c893b30175776719f5 *data/gsa_set.RData
-f37e855b14bc5f8fbd1ef4e6ad2e766d *inst/doc/dslice.R
-a87b508f3f288bf811308976de78dc09 *inst/doc/dslice.Rnw
-f38c715c8b03c466dd0bf356848c45cb *inst/doc/dslice.pdf
+a2f737466a7b75d6952c89cb05ac2229 *inst/doc/dslice.R
+6939d4484fd60d09ea6f69e94da081b8 *inst/doc/dslice.Rnw
+9fa63a1779c876cfc126f6b193ede517 *inst/doc/dslice.pdf
 1a70acb1474287fd8c6e9f78b5fa87c7 *man/ds_1.Rd
 c593163c09d171b97425c92d2c8807f7 *man/ds_eqp_1.Rd
 638a408de1db2f9d4b90c0f3cf99540c *man/ds_eqp_k.Rd
@@ -40,6 +40,5 @@ a6b515de3e383c3cc9038541918ff04d *src/ds_eqp_1.cpp
 bd90e1403938fb6bc2c10c7f4c01364a *src/ds_k.cpp
 091e5015639644807777d93a06c48609 *src/dslice_eqp_k.cpp
 a92adf7b7ba8d11e549f1f15071de8b7 *src/dslice_k.cpp
-a87b508f3f288bf811308976de78dc09 *vignettes/dslice.Rnw
+6939d4484fd60d09ea6f69e94da081b8 *vignettes/dslice.Rnw
 adc9f6871cde74f4cbcf02cd9485eed0 *vignettes/dslice.bib
-f93dcff96227c12927011aa1d2de50ea *vignettes/slice.eps
