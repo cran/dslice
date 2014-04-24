@@ -93,21 +93,14 @@ ds_gsa <- function(expdat, geneset, label, generank, ..., lambda = 1, bycol = FA
   for(i in 1:used_set_num){
     current_val <- ds_val[i]
     if(pflag[i] == 1){
-      #for(j in 1:used_set_num){
-      #  qvalues[i] <- qvalues[i] + length(which(nullval[j, ] > current_val))
-      #}
       pvalues[i] <- length(which(nullval[i, ] > current_val))
     }else{
       pvalues[i] <- rounds
-      #qvalues[i] <- used_set_num * rounds
     }
   }
   pvalues <- pvalues / rounds
   qvalues <- pvalues * used_set_num / rank(pvalues)
   qvalues <- pmin(qvalues, 1)
-  #qvalues <- qvalues / rounds
-  #qvalues <- qvalues / (used_set_num + 1 - rank(ds_val, ties.method = "max"))
-  #qvalues[which(qvalues > 1)] <- 1
   GSA <- list(
     set_name = used_set_name, 
     set_size = used_set_syb_num,

@@ -36,6 +36,7 @@
   \item{alternative}{A character string describing the alternative hypothesis.}
   \item{method}{A character string indicating what type of test was performed.}
   \item{data.name}{A character string giving the name(s) of the data.}
+  \item{slices}{Slicing strategy that maximize dynamic slicing statistic in \emph{K}-sample test. Each row stands for a slice. Each column except the last one stands for the number of observations take each value in each slice. The last column is the number of observations in each slice \emph{i.e.}, the sum of the first column to the \emph{k}th column.}
 }
 \references{
   Jiang, B., Ye, C. and Liu, J.S. Non-parametric \emph{K}-sample tests via dynamic slicing. \emph{Journal of the American Statistical Association}, 2014.

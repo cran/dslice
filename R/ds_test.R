@@ -19,23 +19,27 @@ ds_test <- function(y, x, ..., type = c("ds", "eqp"), lambda = 1, alpha = 1, rou
 	  if(length(x) != length(y)){
 	    stop("'x' and 'y' lengths differ.")
 	  }
-	  if(max(table(x)) < 5){
+	  hist <- table(x)
+    if(length(hist) < 2){
+      stop("All the values of x are the same.")
+    }
+	  if(max(hist) < 5){
 	    stop("Not enough data")
 	  }
 		DNAME <- paste(DNAME, "and", deparse(substitute(x)))
 		METHOD <- "K-sample test via dynamic slicing"
-		dim <- max(x) + 1
+		xdim <- max(x) + 1
 		x <- x[order(y)]
     n <- length(x)
 		if(type == "ds"){
-		  dsval <- .Call('dslice_ds_k', x, dim, lambda, PACKAGE = 'dslice')
+		  dsres <- .Call('dslice_dslice_k', x, xdim, lambda, PACKAGE = 'dslice')
       if(rounds > 1){
-        if(dsval > 1e-6){
+        if(dsres$dsval > 1e-6){
           nullval <- vector(length = n, mode = "numeric")
           for(i in 1:rounds){
-            nullval[i] <- .Call('dslice_ds_k', sample(x), dim, lambda, PACKAGE = 'dslice')
+            nullval[i] <- .Call('dslice_ds_k', sample(x), xdim, lambda, PACKAGE = 'dslice')
           }
-          pvalue <- length(which(nullval > dsval)) / rounds
+          pvalue <- length(which(nullval > dsres$dsval)) / rounds
         }else{
           pvalue <- 1
         }
@@ -43,22 +47,24 @@ ds_test <- function(y, x, ..., type = c("ds", "eqp"), lambda = 1, alpha = 1, rou
 		}
     if(type == "eqp"){
       METHOD <- paste(METHOD, "with O(sqrt{n}) resolution", sep = " ")
-		  dsval <- .Call('dslice_ds_eqp_k', x, dim, lambda, PACKAGE = 'dslice')
+      dsres <- .Call('dslice_dslice_eqp_k', x, xdim, lambda, PACKAGE = 'dslice')
 			if(rounds > 1){
-			  if(dsval > 1e-6){
+			  if(dsres$dsval > 1e-6){
 			    nullval <- vector(length = n, mode = "numeric")
   			  for(i in 1:rounds){
-  			    nullval[i] <- .Call('dslice_ds_eqp_k', sample(x), dim, lambda, PACKAGE = 'dslice')
+  			    nullval[i] <- .Call('dslice_ds_eqp_k', sample(x), xdim, lambda, PACKAGE = 'dslice')
   			  }
-          pvalue <- length(which(nullval > dsval)) / rounds
+          pvalue <- length(which(nullval > dsres$dsval)) / rounds
 			  }else{
 			    pvalue <- 1
 			  }
 			}
 		}
-		STATISTIC <- dsval
+		STATISTIC <- dsres$dsval
 		names(STATISTIC) <- "DS"
 		ALTER <- "The distribution of Y given X = j (j = 1, ..., K) are not the same"
+		RVAL <- list(statistic = STATISTIC, p.value = pvalue, alternative = ALTER, 
+		             method = METHOD, data.name = DNAME, slices = dsres$slices)
 	}else{
 		if(is.character(x)){
 			x <- get(x, mode = "function", envir = parent.frame())
@@ -105,9 +111,9 @@ ds_test <- function(y, x, ..., type = c("ds", "eqp"), lambda = 1, alpha = 1, rou
 		STATISTIC <- dsval
 		names(STATISTIC) <- "DS"
     ALTER <- "Data are not drawn from null distribution."
+		RVAL <- list(statistic = STATISTIC, p.value = pvalue, alternative = ALTER, 
+		             method = METHOD, data.name = DNAME)
 	}
-  RVAL <- list(statistic = STATISTIC, p.value = pvalue, alternative = ALTER, 
-               method = METHOD, data.name = DNAME)
   class(RVAL) <- "htest"
   return(RVAL)
 }

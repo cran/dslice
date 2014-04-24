@@ -55,7 +55,7 @@ gmtpath <- "C2.gmt"
 expdat <- load_gct(gctpath)
 label <- load_cls(clspath)
 geneset <- load_gmt(gmtpath)
-fc <- function(mat, label)
+fc <- function(x, label)
 {
   d0 <- apply(x[,which(label == 0)], 1, mean)
   d1 <- apply(x[,which(label == 1)], 1, mean)

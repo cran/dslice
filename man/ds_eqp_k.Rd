@@ -5,14 +5,14 @@
   Dependency detection between level \eqn{k} (\eqn{k > 1}) categorical variable and continuous variable
 }
 \description{
-  Dependency detection between level \eqn{k} (\eqn{k > 1}) categorical variable and continuous variable via dynamic slicing with \eqn{O(n^{1/2})}-resolution. This function groups samples into approximate \eqn{O(n^{1/2})} groups and performs dynamic slicing on their boundaries. This much faster version could reduce computation time substantially. For more details please refer to Jiang, Ye & Liu (2014). Results contains value of dynamic slicing statistic and slicing strategy. It could be applied for non-parametric \emph{K}-sample hypothesis testing.
+  Dependency detection between level \eqn{k} (\eqn{k > 1}) categorical variable and continuous variable via dynamic slicing with \eqn{O(n^{1/2})}-resolution. The basic idea is almost the same as \code{\link{ds_k}}. The only different is that \code{\link{ds_eqp_k}} groups samples into approximate \eqn{O(n^{1/2})} groups which contain approximate \eqn{O(n^{1/2})} samples and performs dynamic slicing on their boundaries. This much faster version could reduce computation time substantially without too much power loss. Based on the strategy of \code{ds_eqp_k}, we recommend to apply it in large sample size problem and use \code{\link{ds_k}} for ordinary problem. For more details please refer to Jiang, Ye & Liu (2014). Results contains value of dynamic slicing statistic and slicing strategy. It could be applied for non-parametric \emph{K}-sample hypothesis testing.
 }
 \usage{
-  ds_eqp_k(x, dim, lambda, slice = FALSE)
+  ds_eqp_k(x, xdim, lambda, slice = FALSE)
 }
 \arguments{
   \item{x}{Vector: observations of categorical variable, \eqn{0,1,\ldots,k-1} for level \eqn{k} categorical variable, should be ranked according to values of continuous variable in advanced, either ascending or descending.}
-  \item{dim}{Level of \code{x}, equals \eqn{k}.}
+  \item{xdim}{Level of \code{x}, equals \eqn{k}.}
   \item{lambda}{Penalty for introducing an additional slice, which is used to avoid making too many slices. It corresponds to the type I error under the scenario that the two variables are independent. \code{lambda} should be greater than 0.}
   \item{slice}{Indicator for reporting slicing strategy or not.}
 }
@@ -33,7 +33,7 @@ y <- c(rnorm(n, -mu, 1), rnorm(n, mu, 1))
 x <- c(rep("1", n), rep("2", n))
 x <- relabel(x)
 x <- x[order(y)]
-dim <- max(x) + 1
+xdim <- max(x) + 1
 lambda <- 1.0
-dsres <- ds_eqp_k(x, dim, lambda, lambda = TRUE)	
+dsres <- ds_eqp_k(x, xdim, lambda, slice = TRUE)	
 }

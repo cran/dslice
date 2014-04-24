@@ -10,7 +10,6 @@ load_gmt <- function(file = NULL)
     set_name[i] <- tmpset[1]
     set_description[i] <- tmpset[2]
     gene_symbol[[i]] <- tmpset[-(1:2)]
-    #set_list[[i]] <- tmplist
   }
   set_list <- list(set_name = set_name, set_description = set_description,
                    gene_symbol = gene_symbol)

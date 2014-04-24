@@ -5,7 +5,7 @@
   Non-parametric one-sample hypothesis testing via dynamic slicing
 }
 \description{
-  Non-parametric one-sample hypothesis testing via dynamic slicing.
+  Non-parametric one-sample hypothesis testing via dynamic slicing. By mapping sample values to the quantile of null distribution, \code{ds_1} test whether they follow uniform distribution on [0, 1] via a regularized likelihood-ratio. Its calculated is based on a dynamic programming procedure.
 }
 \usage{
   ds_1(y, lambda, alpha)
@@ -17,6 +17,9 @@
 }
 \value{
   Value of dynamic slicing statistic for one-sample test. It is nonnegative. The null hypothesis that observations are from the null distribution is rejected if this statistic is greater than zero, otherwise accept the null hypothesis.
+}
+\seealso{
+  \code{\link{ds_eqp_1}}.
 }
 \examples{
 n <- 100
