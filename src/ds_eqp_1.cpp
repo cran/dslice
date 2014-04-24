@@ -5,11 +5,11 @@ using namespace Rcpp;
 double ds_eqp_1(Rcpp::NumericVector y, double lambda)
 {	
 	int len = y.size();
-	double lpd = -lambda * log(len);
-  double unit = 1.0 / len;
+	double lpd = -lambda * log((double)len);
+	double unit = 1.0 / len;
 	const double epsilon = 1e-6;
   
-  Rcpp::NumericVector ctab(len+1);  //  cumulated unit counts
+	Rcpp::NumericVector ctab(len+1);  //  cumulated unit counts
 	ctab[0] = 0;
 	int l = 1;
 	double flagf = unit;
@@ -22,8 +22,8 @@ double ds_eqp_1(Rcpp::NumericVector y, double lambda)
 	for(; l < len+1; ++l){
 		ctab[l] = len;
 	}
-  Rcpp::NumericVector score(len+1);
-  Rcpp::IntegerVector idx(len+1);
+	Rcpp::NumericVector score(len+1);
+	Rcpp::IntegerVector idx(len+1);
 	for(int k = 0; k < len+1; ++k){
 		score[k] = 0;
 		idx[k] = -1;

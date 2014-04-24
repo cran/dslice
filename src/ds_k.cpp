@@ -5,8 +5,8 @@ using namespace Rcpp;
 double ds_k(Rcpp::NumericVector x, int dim, double lambda)
 {	
 	int len = x.size();
-	double lpd = -lambda * log(len);
-  const double epsilon = 1e-6;
+	double lpd = -lambda * log((double)len);
+	const double epsilon = 1e-6;
 
 	Rcpp::NumericMatrix ctab(len+1, dim);
 	int flagl = 1;
@@ -80,5 +80,5 @@ double ds_k(Rcpp::NumericVector x, int dim, double lambda)
 			mlik -= ctab(clumpnum, u) * log(ctab(clumpnum, u) / len);
 		}
 	}
-  return mlik;
+	return mlik;
 }

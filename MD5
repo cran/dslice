@@ -1,4 +1,4 @@
-ee170382f593a23da78bfc11a545d287 *DESCRIPTION
+6087a0402932a5edbd857a7774154b7c *DESCRIPTION
 0c20872e4a9d74e2da2dff14dc0e8937 *NAMESPACE
 2601ef0c730a6cffab3ac08a2cc746b0 *R/RcppExports.R
 cb7f5735fad186e840231152c1d19138 *R/ds_gsa.R
@@ -26,9 +26,9 @@ f3cef4d8b487dbb70ae997eb2c9f63d4 *man/rank_by_s2n.Rd
 59ddf8520174433626a4eeb20ad1f3f0 *man/relabel.Rd
 44ab9c598e2eae7c1cf4426e6f9c0e1f *man/slice_show.Rd
 619121f2818ddf4adc12f4b36b7093a1 *src/RcppExports.cpp
-b963f15c859331b9f60d9fdea83fc03f *src/ds_1.cpp
-56c7a4f108de02848d558ab2513116db *src/ds_eqp_1.cpp
-a183c45ae3eed09ed2233ce5cb7b0f97 *src/ds_eqp_k.cpp
-1d2bd6db5faf9fcf40747d9b09f62ddd *src/ds_k.cpp
-3ed83418352592e9791191f2fe53b6ab *src/dslice_eqp_k.cpp
-508db0a4960121f5177a3b92e780797c *src/dslice_k.cpp
+d2b98931bb34df643a0c4ec2b0c2d2b4 *src/ds_1.cpp
+a6b515de3e383c3cc9038541918ff04d *src/ds_eqp_1.cpp
+2a8aca839dafd6842abafe5f2782055d *src/ds_eqp_k.cpp
+bd90e1403938fb6bc2c10c7f4c01364a *src/ds_k.cpp
+091e5015639644807777d93a06c48609 *src/dslice_eqp_k.cpp
+a92adf7b7ba8d11e549f1f15071de8b7 *src/dslice_k.cpp

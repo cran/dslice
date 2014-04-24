@@ -5,10 +5,10 @@ using namespace Rcpp;
 Rcpp::List dslice_k(Rcpp::NumericVector x, int dim, double lambda)
 {	
 	int len = x.size();
-	double lpd = -lambda * log(len);
+	double lpd = -lambda * log((double)len);
 	const double epsilon = 1e-6;
   
-  Rcpp::NumericMatrix ctab(len+1, dim);
+	Rcpp::NumericMatrix ctab(len+1, dim);
 	int flagl = 1;
 	int clpcount = 1;  //  clump count
 	int clumpnum = 1;  //  clump number
@@ -82,28 +82,28 @@ Rcpp::List dslice_k(Rcpp::NumericVector x, int dim, double lambda)
 	}
   
 	Rcpp::IntegerMatrix slices(slicenum, dim+1);
-  Rcpp::CharacterVector rownames(slicenum);
-  Rcpp::CharacterVector colnames(dim+1);
-  std::string s = "s";
-  std::string instr;
-  for(int i = 0; i < slicenum; ++i){
-    std::stringstream ss;
-    ss << i + 1;
-    ss >> instr;
-    rownames[i] = s + instr;
-  }
-  for(int j = 0; j < dim; ++j){
-    std::stringstream ss;
-    ss << j;
-    ss >> instr;
-    colnames[j] = instr;
-  }
-  colnames[dim] = "total";
-  Rcpp::List dimnames = Rcpp::List::create(rownames, colnames);
-  slices.attr("dimnames") = dimnames;
+	Rcpp::CharacterVector rownames(slicenum);
+	Rcpp::CharacterVector colnames(dim+1);
+	std::string s = "s";
+	std::string instr;
+	for(int i = 0; i < slicenum; ++i){
+		std::stringstream ss;
+		ss << i + 1;
+		ss >> instr;
+		rownames[i] = s + instr;
+	}
+	for(int j = 0; j < dim; ++j){
+		std::stringstream ss;
+		ss << j;
+		ss >> instr;
+		colnames[j] = instr;
+	}
+	colnames[dim] = "total";
+	Rcpp::List dimnames = Rcpp::List::create(rownames, colnames);
+	slices.attr("dimnames") = dimnames;
   
 	Rcpp::IntegerVector spos(slicenum+1);
-  flag = clumpnum;
+	flag = clumpnum;
 	for(int i = slicenum; i > -1; --i){
 		spos[i] = flag;
 		flag = idx[flag];
@@ -123,5 +123,5 @@ Rcpp::List dslice_k(Rcpp::NumericVector x, int dim, double lambda)
 		}
 	}
 	Rcpp::List slicing_res = Rcpp::List::create(Rcpp::Named("dsval")=mlik, Rcpp::Named("slices")=slices);
-  return slicing_res;
+	return slicing_res;
 }

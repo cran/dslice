@@ -6,11 +6,11 @@ using namespace std;
 double ds_1(Rcpp::NumericVector y, double lambda, double alpha)
 {	
 	int len = y.size();
-	double lpd = -lambda * log(len);
-  double unit = 1.0 / len;
-  Rcpp::NumericVector lscore(len+1);
-  Rcpp::NumericVector rscore(len+1);
-  Rcpp::IntegerVector idx(2*len+2);
+	double lpd = -lambda * log((double)len);
+	double unit = 1.0 / len;
+	Rcpp::NumericVector lscore(len+1);
+	Rcpp::NumericVector rscore(len+1);
+	Rcpp::IntegerVector idx(2*len+2);
 	for(int k = 0; k < len+1; ++k){
 		lscore[k] = 0;
 		rscore[k] = 0;
