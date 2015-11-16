@@ -3,11 +3,11 @@ using namespace Rcpp;
 
 // [[Rcpp::export]]
 Rcpp::List dslice_k(Rcpp::NumericVector x, int dim, double lambda)
-{	
+{
 	int len = x.size();
 	double lpd = -lambda * log((double)len);
 	const double epsilon = 1e-6;
-  
+
 	Rcpp::NumericMatrix ctab(len+1, dim);
 	int flagl = 1;
 	int clpcount = 1;  //  clump count
@@ -80,7 +80,7 @@ Rcpp::List dslice_k(Rcpp::NumericVector x, int dim, double lambda)
 		flag = idx[flag];
 		slicenum++;
 	}
-  
+
 	Rcpp::IntegerMatrix slices(slicenum, dim+1);
 	Rcpp::CharacterVector rownames(slicenum);
 	Rcpp::CharacterVector colnames(dim+1);
@@ -101,7 +101,7 @@ Rcpp::List dslice_k(Rcpp::NumericVector x, int dim, double lambda)
 	colnames[dim] = "total";
 	Rcpp::List dimnames = Rcpp::List::create(rownames, colnames);
 	slices.attr("dimnames") = dimnames;
-  
+
 	Rcpp::IntegerVector spos(slicenum+1);
 	flag = clumpnum;
 	for(int i = slicenum; i > -1; --i){

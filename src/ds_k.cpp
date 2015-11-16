@@ -3,7 +3,7 @@ using namespace Rcpp;
 
 // [[Rcpp::export]]
 double ds_k(Rcpp::NumericVector x, int dim, double lambda)
-{	
+{
 	int len = x.size();
 	double lpd = -lambda * log((double)len);
 	const double epsilon = 1e-6;

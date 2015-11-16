@@ -3,12 +3,12 @@ using namespace Rcpp;
 
 // [[Rcpp::export]]
 double ds_eqp_1(Rcpp::NumericVector y, double lambda)
-{	
+{
 	int len = y.size();
 	double lpd = -lambda * log((double)len);
 	double unit = 1.0 / len;
 	const double epsilon = 1e-6;
-  
+
 	Rcpp::NumericVector ctab(len+1);  //  cumulated unit counts
 	ctab[0] = 0;
 	int l = 1;
@@ -52,7 +52,7 @@ double ds_eqp_1(Rcpp::NumericVector y, double lambda)
 		}
 		score[i] = cutsc;
 		idx[i] = cutpos;
-	}  
+	}
 	double mlik = score[len] - lpd;
 	dq = len;
 	dc = ctab[len];

@@ -5,7 +5,7 @@
   Dependency detection between level \eqn{k} (\eqn{k > 1}) categorical variable and continuous variable
 }
 \description{
-  Dependency detection between level \eqn{k} (\eqn{k > 1}) categorical variable and continuous variable. The basic idea is that the different values of categorical variable correspond to different distribution of continuous variable if there exist dependency between this two varibles, otherwise the distributions of continuous variable do not show difference conditioning on the values of categorical variable. Statistic for this dynamic slicing method is a regularized likelihood-ratio calculated via a dynamic programming procedure. For more details please refer to Jiang, Ye & Liu (2014). Results contains value of dynamic slicing statistic and slicing strategy. It could be applied for non-parametric \emph{K}-sample hypothesis testing.
+  Dependency detection between level \eqn{k} (\eqn{k > 1}) categorical variable and continuous variable. The basic idea is that the different values of categorical variable correspond to different distribution of continuous variable if there exist dependency between this two varibles, otherwise the distributions of continuous variable do not show difference conditioning on the values of categorical variable. Statistic for this dynamic slicing method is a regularized likelihood-ratio calculated via a dynamic programming procedure. For more details please refer to Jiang, Ye & Liu (2015). Results contains value of dynamic slicing statistic and slicing strategy. It could be applied for non-parametric \emph{K}-sample hypothesis testing.
 }
 \usage{
   ds_k(x, xdim, lambda, slice = FALSE)	
@@ -24,7 +24,7 @@
   \code{\link{ds_eqp_k}}.
 }
 \references{
-  Jiang, B., Ye, C. and Liu, J.S. Non-parametric \emph{K}-sample tests via dynamic slicing. \emph{Journal of the American Statistical Association}, 2014.
+  Jiang, B., Ye, C. and Liu, J.S. Non-parametric \emph{K}-sample tests via dynamic slicing. \emph{Journal of the American Statistical Association}, 110(510): 642-653, 2015.
 }
 \examples{
 n <- 100

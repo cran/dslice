@@ -265,7 +265,7 @@ In traditional ways, testing started with analyzing $Y$ grouped by values of $X$
 Under $H_0$, the conditional distribution of $X$ does not depend on slices of $Y$ and
 \[ X \sim \mathrm{Multinomial}\left(1,(p_1, \ldots, p_K)\right), \quad \sum_{j=1}^K p_j=1. \]
 Under $H_1$, the distribution of $X$ conditional on slices is given by
-\[ X | S(Y) = h \sim \mathrm{Multinomial}\left(1,(p_1^{(h)},\ldots,p_K^{(h)}\right), \quad \sum_{j=1}^K p_j^{(h)}=1. \]
+\[ X | S(Y) = h \sim \mathrm{Multinomial}\left(1,(p_1^{(h)},\ldots,p_K^{(h)})\right), \quad \sum_{j=1}^K p_j^{(h)}=1. \]
 We have
 \[ p_j = \mathrm{Pr}(X=j) = \sum_{h=1}^{|S|} P(S(Y)=h)p_j^{(h)}, \text{ for } j = 1,\ldots,K. \]
 and without loss of generality, we assume that $0 < p_1 \leq \ldots \leq p_K < 1$.

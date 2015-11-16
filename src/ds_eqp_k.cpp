@@ -9,7 +9,7 @@ double ds_eqp_k(Rcpp::NumericVector x, int dim, double lambda)
 	const double epsilon = 1e-6;
 
 	int baselen = (int)sqrt((double)len);
-	//  at most "baselen+1" groups with each group has size "baselen" at least
+	//  at most "baselen+2" groups with each group has size "baselen" at least
 	Rcpp::NumericVector divsch(baselen+3);
 	divsch[0] = 0;
 	int flagl = baselen;

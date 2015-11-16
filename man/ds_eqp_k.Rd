@@ -5,7 +5,7 @@
   Dependency detection between level \eqn{k} (\eqn{k > 1}) categorical variable and continuous variable
 }
 \description{
-  Dependency detection between level \eqn{k} (\eqn{k > 1}) categorical variable and continuous variable via dynamic slicing with \eqn{O(n^{1/2})}-resolution. The basic idea is almost the same as \code{\link{ds_k}}. The only different is that \code{\link{ds_eqp_k}} groups samples into approximate \eqn{O(n^{1/2})} groups which contain approximate \eqn{O(n^{1/2})} samples and performs dynamic slicing on their boundaries. This much faster version could reduce computation time substantially without too much power loss. Based on the strategy of \code{ds_eqp_k}, we recommend to apply it in large sample size problem and use \code{\link{ds_k}} for ordinary problem. For more details please refer to Jiang, Ye & Liu (2014). Results contains value of dynamic slicing statistic and slicing strategy. It could be applied for non-parametric \emph{K}-sample hypothesis testing.
+  Dependency detection between level \eqn{k} (\eqn{k > 1}) categorical variable and continuous variable via dynamic slicing with \eqn{O(n^{1/2})}-resolution. The basic idea is almost the same as \code{\link{ds_k}}. The only different is that \code{\link{ds_eqp_k}} groups samples into approximate \eqn{O(n^{1/2})} groups which contain approximate \eqn{O(n^{1/2})} samples and performs dynamic slicing on their boundaries. This much faster version could reduce computation time substantially without too much power loss. Based on the strategy of \code{ds_eqp_k}, we recommend to apply it in large sample size problem and use \code{\link{ds_k}} for ordinary problem. For more details please refer to Jiang, Ye & Liu (2015). Results contains value of dynamic slicing statistic and slicing strategy. It could be applied for non-parametric \emph{K}-sample hypothesis testing.
 }
 \usage{
   ds_eqp_k(x, xdim, lambda, slice = FALSE)
@@ -24,7 +24,7 @@
   \code{\link{ds_k}}.
 }
 \references{
-  Jiang, B., Ye, C. and Liu, J.S. Non-parametric \emph{K}-sample tests via dynamic slicing. \emph{Journal of the American Statistical Association}, 2014.
+  Jiang, B., Ye, C. and Liu, J.S. Non-parametric \emph{K}-sample tests via dynamic slicing. \emph{Journal of the American Statistical Association}, 110(510): 642-653, 2015.
 }
 \examples{
 n <- 100

@@ -37,7 +37,7 @@
   \item{slices}{A list of slicing strategy of each gene set. Each component is a matrix of slices.}  
 }
 \references{
-  Jiang, B., Ye, C. and Liu, J.S. Non-parametric \emph{K}-sample tests via dynamic slicing. \emph{Journal of the American Statistical Association}, 2014.
+  Jiang, B., Ye, C. and Liu, J.S. Non-parametric \emph{K}-sample tests via dynamic slicing. \emph{Journal of the American Statistical Association}, 110(510): 642-653, 2015.
 
   Subramanian, A., Tamayo, P., Mootha, V. K., \emph{et al}. Gene set enrichment analysis: a knowledge-based approach for interpreting genome-wide expression profiles. \emph{Proceedings of the National Academy of Sciences of the United States of America}, 2005, 102(43): 15545-15550.
   

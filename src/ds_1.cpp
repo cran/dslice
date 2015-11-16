@@ -4,7 +4,7 @@ using namespace std;
 
 // [[Rcpp::export]]
 double ds_1(Rcpp::NumericVector y, double lambda, double alpha)
-{	
+{
 	int len = y.size();
 	double lpd = -lambda * log((double)len);
 	double unit = 1.0 / len;

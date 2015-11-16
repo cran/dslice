@@ -76,14 +76,14 @@ Rcpp::List dslice_eqp_k(Rcpp::NumericVector x, int dim, double lambda)
 		score[i] = cutsc;
 		idx[i] = cutpos;
 	}
-	
+
 	int slicenum = 0;
 	int flag = ngrp;
 	while(flag > 0){
 		flag = idx[flag];
 		slicenum++;
 	}
-  
+
 	Rcpp::IntegerMatrix slices(slicenum, dim+1);
 	Rcpp::CharacterVector rownames(slicenum);
 	Rcpp::CharacterVector colnames(dim+1);

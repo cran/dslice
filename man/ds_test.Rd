@@ -27,7 +27,7 @@
   
   Only empirical \emph{p}-values are available by specifying the value of parameter \code{rounds}, the number of permutation. \code{lambda} and \code{alpha} (for one-sample test with type "\code{ds}") contributes to \emph{p}-value.
   
-  The procedure of choosing parameter \code{lambda} was described in Jiang, Ye & Liu (2014). Refer to \url{http://www.people.fas.harvard.edu/~junliu/DS/lambda-table.html} for the empirical relationship of \code{lambda}, sample size and type I error.
+  The procedure of choosing parameter \code{lambda} was described in Jiang, Ye & Liu (2015). Refer to \url{http://www.people.fas.harvard.edu/~junliu/DS/lambda-table.html} for the empirical relationship of \code{lambda}, sample size and type I error.
 }
 \value{
   A list with class "\code{htest}" containing the following components:
@@ -39,7 +39,7 @@
   \item{slices}{Slicing strategy that maximize dynamic slicing statistic in \emph{K}-sample test. Each row stands for a slice. Each column except the last one stands for the number of observations take each value in each slice. The last column is the number of observations in each slice \emph{i.e.}, the sum of the first column to the \emph{k}th column.}
 }
 \references{
-  Jiang, B., Ye, C. and Liu, J.S. Non-parametric \emph{K}-sample tests via dynamic slicing. \emph{Journal of the American Statistical Association}, 2014.
+  Jiang, B., Ye, C. and Liu, J.S. Non-parametric \emph{K}-sample tests via dynamic slicing. \emph{Journal of the American Statistical Association}, 110(510): 642-653, 2015.
 }
 \examples{
 ##  One-sample test
