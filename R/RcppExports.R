@@ -1,3 +1,23 @@
+bfslice_c <- function(z, x, zdim, xdim, lambda, alpha)
+{
+	.Call('dslice_bfslice_c', z, x, zdim, xdim, lambda, alpha, PACKAGE = 'dslice')
+}
+
+bfslice_u <- function(x, dim, lambda, alpha)
+{
+	.Call('dslice_bfslice_u', x, dim, lambda, alpha, PACKAGE = 'dslice')
+}
+
+bfslice_eqp_c <- function(z, x, zdim, xdim, lambda, alpha)
+{
+	.Call('dslice_bfslice_eqp_c', z, x, zdim, xdim, lambda, alpha, PACKAGE = 'dslice')
+}
+
+bfslice_eqp_u <- function(x, dim, lambda, alpha)
+{
+	.Call('dslice_bfslice_eqp_u', x, dim, lambda, alpha, PACKAGE = 'dslice')
+}
+
 ds_eqp_1 <- function(y, lambda = 1)
 {
 	.Call('dslice_ds_eqp_1', y, lambda, PACKAGE = 'dslice')

@@ -1,7 +1,6 @@
 \documentclass[a4paper,11pt]{article}
 
 % packages included
-\usepackage{Sweave}
 \usepackage{amsmath}
 \usepackage{amsfonts}
 \usepackage[section]{placeins}  % Forces figures to be placed in current section
@@ -13,6 +12,7 @@
 \usepackage{tikz}
 \usepackage{tkz-euclide}
 \usetikzlibrary{decorations.pathreplacing}
+\usepackage{Sweave}
 
 % definition of newcommands
 \newcommand{\Rcode}[1]{{\texttt{#1}}}
