@@ -59,7 +59,7 @@ x <- relabel(x)
 x <- x[order(y)]
 xdim <- max(x) + 1
 lambda <- 1.0
-dsres <- ds_eqp_k(x, xdim, lambda, slice = TRUE)  
+dsres <- ds_eqp_k(x, xdim, lambda, slice = TRUE)
 
 
 ###################################################
@@ -105,7 +105,7 @@ dsres <- ds_test(y, "pnorm", 0, 1, type = "eqp", lambda = 1)
 n <- 100
 mu <- 0.5
 x <- rnorm(n, mu, 1)
-y <- pnorm(sort(x), 0, 1) 
+y <- pnorm(sort(x), 0, 1)
 lambda <- 1.0
 alpha <- 1.0
 dsres <- ds_1(y, lambda, alpha)

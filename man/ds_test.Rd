@@ -20,14 +20,14 @@
 }
 \details{
   If \code{x} is an integer vector, \code{ds_test} performs \emph{K}-sample test (\eqn{K > 1}).
-  
+
   Under this scenario, suppose that there are observations \code{y} drawn from some \emph{continuous} populations. Let \code{x} be a vector that stores values of indicator of samples from different populations, \emph{i.e.}, \code{x} has values \eqn{0, 1, \ldots, K-1}. The null hypothesis is that these populations have the same distribution.
-  
+
   If \code{x} is a character string naming a continuous (cumulative) distribution function, \code{ds_test} performs one-sample test with the null hypothesis that the distribution function which generated \code{y} is distribution \code{x} with parameters specified by \eqn{\ldots}. The parameters specified in \eqn{\ldots} must be pre-specified and not estimated from the data.
-  
+
   Only empirical \emph{p}-values are available by specifying the value of parameter \code{rounds}, the number of permutation. \code{lambda} and \code{alpha} (for one-sample test with type "\code{ds}") contributes to \emph{p}-value.
-  
-  The procedure of choosing parameter \code{lambda} was described in Jiang, Ye & Liu (2015). Refer to \url{http://www.people.fas.harvard.edu/~junliu/DS/lambda-table.html} for the empirical relationship of \code{lambda}, sample size and type I error.
+
+  The procedure of choosing parameter \code{lambda} was described in Jiang, Ye & Liu (2015). Refer to dataset \code{ds_type_one_error} in this package for the empirical relationship of \code{lambda}, sample size and type I error.
 }
 \value{
   A list with class "\code{htest}" containing the following components:

@@ -7,7 +7,7 @@
 \usepackage{geometry}
 \usepackage{graphicx}
 \usepackage{hyperref}
-\usepackage[usenames,dvipsnames,svgnames]{xcolor}
+\usepackage[dvipsnames,svgnames]{xcolor}
 \usepackage[authoryear,round]{natbib} % Format for in-text citations
 \usepackage{tikz}
 \usepackage{tkz-euclide}
@@ -105,7 +105,7 @@ dsres
 
 Dynamic slicing treats the investigated categorical and continuous variables to be independent if the value of dynamic slicing statistic (``DS-statistic'') is 0 (or a very small value, \textit{e.g.}, less than 1e-6), otherwise dynamic slicing treats there exists dependency between them. For this example, we can see that the value of DS-statistic is larger than 0, which means the \Rcode{x} and \Rcode{y} here are not independent.
 
-The value of \Rcode{lambda} is related to a Type-I error rate, which measures the possibility that dynamic slicing misinforms the two variable are not independence in the actual scenario that them are. Currently there are not close form relationship between the value of slicing penalty and Type-I error rate of dynamic slicing. For how to select a proper \Rcode{lambda} in slicing, please refer to Section 4 in \cite{jiang2014non} and this link: \url{http://people.fas.harvard.edu/~junliu/DS/lambda-table.html}. The indicator \Rcode{slice} indicates whether to report slice strategy with DS-statistic or not. If \Rcode{slice=TRUE}, then we could see the slicing result in a plot (Figure \ref{fig:dsres}):
+The value of \Rcode{lambda} is related to a Type-I error rate, which measures the possibility that dynamic slicing misinforms the two variable are not independence in the actual scenario that them are. Currently there are not close form relationship between the value of slicing penalty and Type-I error rate of dynamic slicing. For how to select a proper \Rcode{lambda} in slicing, please refer to dataset \Rcode{ds$\_$type$\_$one$\_$error} in this package. The indicator \Rcode{slice} indicates whether to report slice strategy with DS-statistic or not. If \Rcode{slice=TRUE}, then we could see the slicing result in a plot (Figure \ref{fig:dsres}):
 
 <<illustrate_slice, fig=TRUE, width=8, height=4.5, include=FALSE>>=
 colnames(dsres$slices) <- c("G1", "G2", "total")
@@ -134,7 +134,7 @@ x <- relabel(x)
 x <- x[order(y)]
 xdim <- max(x) + 1
 lambda <- 1.0
-dsres <- ds_eqp_k(x, xdim, lambda, slice = TRUE)  
+dsres <- ds_eqp_k(x, xdim, lambda, slice = TRUE)
 @
 
 \subsection{Dynamic slicing for \textit{K}-sample (\textit{K} $\geq$ 2) test}
@@ -197,7 +197,7 @@ Here are examples for using \Rcode{ds$\_$1} and \Rcode{ds$\_$eqp$\_$1}:
 n <- 100
 mu <- 0.5
 x <- rnorm(n, mu, 1)
-y <- pnorm(sort(x), 0, 1) 
+y <- pnorm(sort(x), 0, 1)
 lambda <- 1.0
 alpha <- 1.0
 dsres <- ds_1(y, lambda, alpha)
@@ -270,7 +270,7 @@ We have
 \[ p_j = \mathrm{Pr}(X=j) = \sum_{h=1}^{|S|} P(S(Y)=h)p_j^{(h)}, \text{ for } j = 1,\ldots,K. \]
 and without loss of generality, we assume that $0 < p_1 \leq \ldots \leq p_K < 1$.
 
-Given a fixed slicing scheme $S(Y)$, the log-likelihood ratio of $H_1$ versus $H_0$ can be written as 
+Given a fixed slicing scheme $S(Y)$, the log-likelihood ratio of $H_1$ versus $H_0$ can be written as
 \begin{equation}\label{eq:mi}
 n\widehat{\mathrm{MI}}\left(X,S(Y)\right) = \sum_{h=1}^{|S|}\sum_{j=1}^{K}n_{j}^{(h)}\log\left(\frac{n_{j}^{(h)}}{n^{(h)}}\right) - \sum_{j=1}^{K}n_j\log\left(\frac{n_j}{n}\right),
 \end{equation}
@@ -364,7 +364,7 @@ Given a fixed slicing scheme $S(Y)$, the log-likelihood ratio of alternative ver
 \begin{equation}\label{eq:kl}
 n\mathrm{KL}\left(\widehat{P}_n(S(Y))||P_0(S(Y))\right) = \sum_{h=1}^{|S|}n_h\log\left(\frac{n_{h}}{nw_h}\right),
 \end{equation}
-where $w_h = |s_h|$ is the width of slice $s_h$ and $n_h$ is the number of observations in slice $s_h$. $\mathrm{KL}\left(\widehat{P}_n(S(Y))||P_0(S(Y))\right)$ is the Kullback-Leibler divergence between the empirical distribution of $S(Y)$, $\widehat{P}_n(S(Y))$, and the null distribution of $S(Y)$, $P_0(S(Y))$. 
+where $w_h = |s_h|$ is the width of slice $s_h$ and $n_h$ is the number of observations in slice $s_h$. $\mathrm{KL}\left(\widehat{P}_n(S(Y))||P_0(S(Y))\right)$ is the Kullback-Leibler divergence between the empirical distribution of $S(Y)$, $\widehat{P}_n(S(Y))$, and the null distribution of $S(Y)$, $P_0(S(Y))$.
 
 To avoid having too many slices or slices that are arbitrarily small, we introduce a prior on slicing schemes. It gives us the following statistic:
 \begin{equation}\label{eq:ds1}
